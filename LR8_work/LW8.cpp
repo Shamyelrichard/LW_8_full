@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 class Data {
 private:
@@ -93,11 +94,11 @@ public:
 };
 class Flower : public Plant {
 private:
-	Data bloom_starting;
-	int bloom_duration;
 	std::string name;
 	int lifetime;
 	Data day_of_born;
+	Data bloom_starting;
+	int bloom_duration;
 public:
 	Flower(std::string name_ = "Bob", int lifetime_ = 365, Data day_of_born_ = { 0, 0 }, Data bloom_starting_ = { 0, 0 }, int bloom_duration_ = 1) {
 		this->name = name_;
