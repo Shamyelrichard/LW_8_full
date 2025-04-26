@@ -26,6 +26,12 @@ public:
 		int delta_month = month + alt.month + (day + alt.day) / 30;
 		return Data{ delta_day, delta_month };
 	}
+	bool operator == (Data& alt) {
+		if (day == alt.day && month == alt.month) {
+			return 1;
+		}
+		return 0;
+	}
 };
 std::ostream& operator <<(std::ostream& stream, Data& moment) {
 	stream << "month - ";
@@ -53,7 +59,7 @@ public:
 	void set_lifetime(int new_lifetime) {
 		lifetime = new_lifetime;
 	}
-	void set_day_ofborn(Data new_day_of_born) {
+	void set_day_of_born(Data new_day_of_born) {
 		day_of_born = new_day_of_born;
 	}
 	std::string get_name() {
