@@ -7,14 +7,14 @@ private:
 	int month;
 public:
 	Data(int day_ = 0, int month_ = 0) {
-		this->day = day_;
-		this->month = month_;
+		day = day_;
+		month = month_;
 	}
 	int get_day() {
-		return day;
+		return this->day;
 	}
 	int get_month() {
-		return month;
+		return this->month;
 	}
 	void set_day(int new_day) {
 		day = new_day;
@@ -113,11 +113,29 @@ public:
 	void set_bloom_duration(int new_b_d) {
 		bloom_duration = new_b_d;
 	}
+	void set_lifetime(int new_lifetime) {
+		lifetime = new_lifetime;
+	}
+	void set_day_of_born(Data new_day_of_born) {
+		day_of_born = new_day_of_born;
+	}
+	void set_name(std::string new_name){
+		name = new_name;
+	}
+	std::string get_name() {
+		return name;
+	}
+	int get_lifetime() {
+		return lifetime;
+	}
 	Data get_bloom_starting() {
 		return bloom_starting;
 	}
 	int get_bloom_duration() {
 		return bloom_duration;
+	}
+	Data get_day_of_born() {
+		return day_of_born;
 	}
 	void print() {
 		std::cout << "name - " << name << '\n'
