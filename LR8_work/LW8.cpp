@@ -94,16 +94,11 @@ public:
 };
 class Flower : public Plant {
 private:
-	std::string name;
-	int lifetime;
-	Data day_of_born;
 	Data bloom_starting;
 	int bloom_duration;
 public:
-	Flower(std::string name_ = "Bob", int lifetime_ = 365, Data day_of_born_ = { 0, 0 }, Data bloom_starting_ = { 0, 0 }, int bloom_duration_ = 1) {
-		this->name = name_;
-		this->lifetime = lifetime_;
-		this->day_of_born = day_of_born_;
+	Flower(std::string name_ = "Bob", int lifetime_ = 365, Data day_of_born_ = { 0, 0 }, Data bloom_starting_ = { 0, 0 }, int bloom_duration_ = 1) :
+	Plant(name_, lifetime_, day_of_born_), bloom_starting(bloom_starting_), bloom_duration(bloom_duration_){
 		this->bloom_starting = bloom_starting_;
 		this->bloom_duration = bloom_duration_;
 	};
@@ -113,36 +108,16 @@ public:
 	void set_bloom_duration(int new_b_d) {
 		bloom_duration = new_b_d;
 	}
-	void set_lifetime(int new_lifetime) {
-		lifetime = new_lifetime;
-	}
-	void set_day_of_born(Data new_day_of_born) {
-		day_of_born = new_day_of_born;
-	}
-	void set_name(std::string new_name){
-		name = new_name;
-	}
-	std::string get_name() {
-		return name;
-	}
-	int get_lifetime() {
-		return lifetime;
-	}
 	Data get_bloom_starting() {
 		return bloom_starting;
 	}
 	int get_bloom_duration() {
 		return bloom_duration;
 	}
-	Data get_day_of_born() {
-		return day_of_born;
-	}
 	void print() {
-		std::cout << "name - " << name << '\n'
-			<< "lifetime - " << lifetime << "\n"
-			<< "day when he/she was plant " << day_of_born << "\n"
-			<< "blosom starting in " << bloom_starting << "\n"
-			<< "blossom will continue for " << bloom_duration << " days" << "\n";
+		Plant::print();
+		std::cout << "blosom starting in " << bloom_starting << "\n"
+		<< "blossom will continue for " << bloom_duration << " days" << "\n";
 	}
 };
 
